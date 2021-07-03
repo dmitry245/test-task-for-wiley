@@ -1,0 +1,16 @@
+.navbarWrapper {
+    grid-area: nav;
+    background-color:  red;
+    padding: 20px;
+}
+.item a{
+    color: white;
+    text-decoration: none;
+}
+.item a:hover{
+    color: gold;
+}
+
+.item a.active{
+    color: greenyellow;
+}

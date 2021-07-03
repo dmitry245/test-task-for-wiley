@@ -1,0 +1,8 @@
+.item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.textIsDone{
+    text-decoration: line-through;
+}
