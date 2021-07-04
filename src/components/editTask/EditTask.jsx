@@ -17,8 +17,6 @@ const  EditTask = (props) => {
         let newTaskHeader = taskFormData.EditTask;
         props.setTaskUpdate(currentId, newTaskHeader);
         setId(null);
-
-        console.log(currentId, newTaskHeader);
     };
 
     const tasksElements = tasks.map( o => {

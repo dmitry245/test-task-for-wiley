@@ -6,7 +6,6 @@ import InputController from "../common/formController/InputController";
 const minlength = minlengthCreater(10);
 
 const TaskFormEditor = (props) => {
-    console.log(props);
     return(
         <form onSubmit={props.handleSubmit}>
             <Field    
