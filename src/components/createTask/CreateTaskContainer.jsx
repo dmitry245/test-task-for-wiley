@@ -5,11 +5,7 @@ import CreateTask from "./CreateTask";
 
 class CreateTaskContainer extends React.Component {
     render(){
-        return(
-            <>
-                <CreateTask {...this.props} />
-            </>
-        )
+        return <CreateTask {...this.props} />
     }
 };
 

@@ -1,7 +1,5 @@
-.editTaskWrapper{
-    
-}
 .item{
+    min-height: 70px;
     cursor: pointer;
     background-color:  transparent;
     transition: linear 300ms;
@@ -10,16 +8,6 @@
     justify-content: center;
     align-items: center;
     border: 1px solid darkblue;
-}
-.itemActive{
-    cursor: pointer;
-    background-color:  transparent;
-    transition: linear 300ms;
-    margin-bottom: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px dashed red;
 }
 .item:hover{
     transition: linear 300ms;
@@ -34,4 +22,10 @@
 }
 .borderOff{
     border: 1px solid transparent;
+}
+.editor{
+
+}
+.el p{
+    margin: 0;
 }

@@ -7,11 +7,7 @@ import ListTask from "./ListTask";
 
 class ListTaskContainer extends React.Component {
     render(){
-        return(
-            <>
-                <ListTask {...this.props} />
-            </>
-        )
+        return <ListTask {...this.props} />
     }
 };
 

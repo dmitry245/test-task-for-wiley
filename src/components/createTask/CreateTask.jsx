@@ -7,10 +7,6 @@ import ListTask from "../listTask/ListTask";
 
 const CreateTask = (props) => {
 
-    // const afterSubmit = (result, dispatch) => {
-    //     dispatch(reset('ordersTradesSearchForm'));
-    // };
-
     const TaskFormEditor = reduxForm({form: "TaskForm"})(TaskForm);
     
     const onSendMessageClick = (taskFormData) => {
@@ -18,28 +14,19 @@ const CreateTask = (props) => {
         props.sendTask(newTaskHeader);
     };
 
-    // useEffect(() => {
-    // }, [input])
-
-    // setTaskIsDoneOrActive: setTaskIsDoneActionCreater,
-    // setTaskRemove: setTaskRemoveActionCreater
-
     return (
-        <>
-            <div className={s.createTaskWrapper}>
-                <h2>CreateTask</h2>
-                <TaskFormEditor onSubmit={onSendMessageClick}/>
-                <div>
-                    <ListTask
-                        setTaskFaivorits={props.setTaskFaivorits}
-                        setTaskIsDoneOrActive={props.setTaskIsDoneOrActive}
-                        setTaskRemove={props.setTaskRemove}
-                        tasks={props.tasks}
-                    />
-                </div>
+        <div className={s.createTaskWrapper}>
+            <h2>CreateTask</h2>
+            <TaskFormEditor onSubmit={onSendMessageClick}/>
+            <div>
+                <ListTask
+                    setTaskFaivorits={props.setTaskFaivorits}
+                    setTaskIsDoneOrActive={props.setTaskIsDoneOrActive}
+                    setTaskRemove={props.setTaskRemove}
+                    tasks={props.tasks}
+                />
             </div>
-            
-        </>
+        </div>
     )
 };
 

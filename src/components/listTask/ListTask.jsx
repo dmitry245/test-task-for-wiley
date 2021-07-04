@@ -3,11 +3,10 @@ import React from "react";
 import s from "./listTask.module.css";
 
 const ListTask = (props) => {
-    let tasks = props.tasks;
-    let sorted = sortBy(tasks, "header");
-    // debugger
+    const tasks = props.tasks;
+    const sorted = sortBy(tasks, "header");
 
-    let tasksElements = sorted.map( t => {
+    const tasksElements = sorted.map( t => {
         return(
             <div className={s.item} key={t.id}>
                 <p className={t.isDone ? s.textIsDone : s.text}>{t.header}</p>
@@ -20,11 +19,9 @@ const ListTask = (props) => {
     
 
     return (
-        <>
-            <div className={s.listTaskWrapper}>
-                {tasksElements}
-            </div>
-        </>
+        <div className={s.listTaskWrapper}>
+            {tasksElements}
+        </div>
     )
 };
 

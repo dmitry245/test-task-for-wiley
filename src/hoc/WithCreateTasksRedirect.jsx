@@ -16,11 +16,8 @@ const WithCreateTasksRedirect = (Component) => {
             const Tasks = this.props.tasks.length;
 
             if(Tasks === 0) return <Redirect to={"/createTask"} />
-            return(
-                <>
-                    <Component {...this.props} />
-                </>
-            )
+            
+            return <Component {...this.props} />
         }
     }
 

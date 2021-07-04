@@ -7,11 +7,7 @@ import EditTask from "./EditTask";
 
 class EditTaskContainer extends React.Component {
     render(){
-        return(
-            <>
-                <EditTask {...this.props} />
-            </>
-        )
+        return <EditTask {...this.props} />
     }
 };
 

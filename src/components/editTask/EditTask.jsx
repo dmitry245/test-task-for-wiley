@@ -1,41 +1,52 @@
 import React, { useState } from "react";
-// import { reduxForm } from "redux-form";
-// import TaskForm from "../createTask/TaskForm";
+import { reduxForm } from "redux-form";
 import s from "./editTask.module.css";
+import TaskFormEditor from "./TaskFormEditor";
 
 const  EditTask = (props) => {
 
+    const TaskForm = reduxForm({form: "TaskEditorForm"})(TaskFormEditor);
     
-    const [id, setId] = useState(0);
-    const [activeEditor, setstate] = useState(false);
+    const [currentId, setId] = useState(null);
 
-    let tasks = props.tasks;
+    const tasks = props.tasks;
 
+    const onEdit = (id) => currentId !== id ? setId(id) : setId(null);
 
-    const onEdit = (currentId, id) => {
-        // setId(currentId);
-        debugger
-        if(currentId === id){
-            setstate(true);
-        }
-    }
+    const onSendMessageClick = (taskFormData) => {
+        let newTaskHeader = taskFormData.EditTask;
+        props.setTaskUpdate(currentId, newTaskHeader);
+        setId(null);
 
-    let tasksElements = tasks.map( o => {
+        console.log(currentId, newTaskHeader);
+    };
+
+    const tasksElements = tasks.map( o => {
         return(
-            <div onChange={() => onEdit(o.id, id)} className={!activeEditor ? s.item : s.itemActive} key={o.id}>
-                <p className={o.isDone ? s.textIsDone : s.text}>{o.header}</p>
-                {/* <input onClick={() => props.setTaskIsDoneOrActive(t.id)} className={s.checkbox} type="checkbox" defaultChecked={t.isDone}/> */}
-                {/* <button onClick={() => props.setTaskRemove(t.id)} type="button">deleteTask</button> */}
+            <div  className={s.item} key={o.id}>
+
+                {currentId === o.id 
+                    ?null 
+                    :<div className={s.el}>
+                        <p onClick={() => onEdit(o.id)} className={o.isDone ? s.textIsDone : s.text}>{o.header}</p>
+                    </div>
+                }
+
+                {currentId === o.id 
+                    ?<div className={s.editor}>
+                        <TaskForm header={o.header}  onSubmit={onSendMessageClick}/>
+                    </div>
+                    :null
+                }
+                
             </div>
         )
     });
 
     return (
-        <>
-            <div className={s.editTaskWrapper}>
-                {tasksElements}
-            </div>
-        </>
+        <div className={s.editTaskWrapper}>
+            {tasksElements}
+        </div>
     )
 };
 

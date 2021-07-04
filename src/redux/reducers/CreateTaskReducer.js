@@ -1,12 +1,15 @@
-import { uniqueId } from "lodash";
+import { uniqueId, isNil } from "lodash";
+import { load } from "redux-localstorage-simple";
 
 const SEND_TASK = "SEND-TASK";
 const SET_TASK_IS_DONE = "SET-TASK-IS-DONE";
 const SET_TASK_REMOVE = "SET-TASK-REMOVE";
 const SET_TASK_UPDATE = "SET-TASK-UPDATE";
 
+const todoStorage = load({namespace: "todo"});
+
 const initState = {
-    tasksData: []
+    tasksData: !isNil(todoStorage.taskPage) ? todoStorage.taskPage.tasksData : []
 };
 
 const CreateTaskReducer = (state = initState, action) => {
